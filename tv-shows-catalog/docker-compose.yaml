@@ -1,2 +1,13 @@
-# Définir cette configuration Compose afin de lancer l'application
-# Make Me Watch en production.
+services:
+  server:
+    build:
+      context: ./server
+    ports:
+      - "3000:3000"
+  client:
+    build:
+      context: ./client
+    ports:
+      - "4173:4173"
+    depends_on:
+      - server
