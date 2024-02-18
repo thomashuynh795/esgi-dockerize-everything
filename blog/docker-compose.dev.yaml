@@ -10,6 +10,18 @@ services:
       POSTGRES_USER: thomas
     volumes:
       - db_data:/var/lib/postgresql/data
+    
+  rust:
+    build:
+      context: .
+    environment:
+      - ROCKET_ADDRESS=0.0.0.0
+      - ROCKET_PORT=8000
+      - DATABASE_URL=postgres://thomas:admin@db:5432/blog
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
 
 volumes:
   db_data:
