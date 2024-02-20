@@ -17,7 +17,6 @@ RUN apt update \
 RUN curl -sS https://getcomposer.org/installer | php -- \
      --install-dir=/usr/bin --filename=composer
 
-RUN wget https://get.symfony.com/cli/installer -O - | bash
 
 RUN composer install --no-dev --optimize-autoloader
 
