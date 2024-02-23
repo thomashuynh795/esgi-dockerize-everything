@@ -4,7 +4,7 @@ services:
   php:
     build: .
     ports:
-      - "9000:9000"
+      - ${PHPPORT}
     environment:
       APP_ENV: prod
     volumes:
@@ -13,7 +13,7 @@ services:
   nginx:
     image: nginx:latest
     ports: 
-      - "80:80"
+      - ${NGINXPORT}
     volumes: 
       - symfony_volume:/var/www/symfony
       - .docker/nginx/grilli.com.conf:/etc/nginx/conf.d/default.conf
