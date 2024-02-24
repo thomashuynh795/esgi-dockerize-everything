@@ -3,11 +3,11 @@ services:
     build:
       context: ./server
     ports:
-      - "3000:3000"
+      - "${HOST_PORT_FOR_SERVER}:${CONTAINER_PORT_FOR_SERVER}"
   client:
     build:
       context: ./client
     ports:
-      - "4173:4173"
+      - "${HOST_PORT_FOR_CLIENT}:${CONTAINER_PORT_FOR_CLIENT}"
     depends_on:
       - server
